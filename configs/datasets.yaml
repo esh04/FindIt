@@ -1,0 +1,54 @@
+# Local image-folder paths for every dataset in FindIt (paper Table 1).
+# Replace each `images:` / `scenes:` / `support:` / `frames:` value with the
+# absolute path on your machine. See data/README.md for download pointers.
+
+# Object detection
+pascal:
+  images: /path/to/VOCdevkit/VOC2007/JPEGImages
+  multi_label: false
+
+openimages:
+  images: /path/to/OpenImagesv7/test
+  multi_label: false
+
+# Referring expressions (RefCOCO/+/g and RefL4 are pulled from HuggingFace)
+refcoco:
+  hf: lmms-lab/RefCOCO
+refcoco_plus:
+  hf: lmms-lab/RefCOCOplus
+refcoco_g:
+  hf: lmms-lab/RefCOCOg
+refl4:
+  hf: JierunChen/Ref-L4
+
+d3:
+  images: /path/to/d-cube/d3_images
+  intra_group: true
+  negative_examples: true
+
+flickr30k:
+  images: /path/to/flickr30k-entities/flickr30k-images
+
+phrasecut:
+  images: /path/to/PhraseCutDataset/data/VGPhraseCut_v0/images
+
+svg_relations:
+  images: /path/to/SVG/GQA
+
+# Instance detection
+hr_insdet:
+  scenes:  /path/to/HR-InsDet/Scenes
+  support: /path/to/HR-InsDet/Objects
+  support_shots: 1
+  random_support: false
+
+# Video (instance detection on RoboTools, object detection on iGround)
+robotools:
+  frames:  /path/to/RoboTools/test
+  support: /path/to/RoboTools/test_video
+  support_shots: 1
+  random_support: false
+
+iground:
+  frames: /path/to/iGround/frames
+  multi_label: false

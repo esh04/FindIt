@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "findit"
+version = "0.1.0"
+description = "FindIt: a format-informed visual detection benchmark for generalist multimodal LLMs"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+dependencies = [
+    "numpy",
+    "pyyaml",
+    "pyarrow",
+    "datasets",
+    "Pillow",
+    "torch",
+    "torchvision",
+    "scipy",
+    "lmms-eval",
+    "decord",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+findit = ["task_templates/*.yaml"]
