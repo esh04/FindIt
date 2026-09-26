@@ -1,0 +1,33 @@
+# Shared lmms-eval task template. Every variant YAML produced by generate_tasks.py
+# includes this file. Per-variant axis values live in `lmms_eval_specific_kwargs`.
+
+doc_to_visual: !function findit.doc_utils.doc_to_visual
+doc_to_text: !function findit.doc_utils.doc_to_text
+doc_to_target: ""
+process_results: !function findit.doc_utils.process_results
+
+dataset_kwargs:
+  load_from_disk: true
+test_split: test
+
+generation_kwargs:
+  max_new_tokens: 1024
+  temperature: 0
+  do_sample: false
+
+metric_list:
+  - metric: format_adherence
+    aggregation: !function findit.doc_utils.agg_format_adherence
+    higher_is_better: true
+  - metric: mean_iou
+    aggregation: !function findit.doc_utils.agg_mean_iou
+    higher_is_better: true
+  - metric: precision_at_05
+    aggregation: !function findit.doc_utils.agg_precision_at_05
+    higher_is_better: true
+  - metric: recall_at_05
+    aggregation: !function findit.doc_utils.agg_recall_at_05
+    higher_is_better: true
+  - metric: f1_at_05
+    aggregation: !function findit.doc_utils.agg_f1_at_05
+    higher_is_better: true
